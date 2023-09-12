@@ -89,6 +89,7 @@ header .link .icon {
 main {
     padding-top: 80px;
     min-height: 90vh;
+    animation: fadeInMain 0.4s forwards;
 }
 
 main section:first-of-type {
@@ -210,5 +211,14 @@ body::-webkit-scrollbar-thumb:hover {
     }
     nav.nav-open {
         display: flex;
+    }
+}
+
+@keyframes fadeInMain {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
