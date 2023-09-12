@@ -5,24 +5,27 @@
 // -----------------------------------------------------------
 
 
-window.document.onscroll = e => {
-    const header = document.querySelector("header")
-    if(e.target.scrollingElement.scrollTop > 0) {
-        header.classList.remove("not-scrolling")
-    } else {
-        header.classList.add("not-scrolling")
-    }
+import { Moving_Points } from "/scripts/moving-points.js"
+import { onPageLoad } from "/headless-cms-scripts/client-side-router.js"
+
+
+
+function init_moving_points() {    
+    if(window.location.pathname !== "/") return
+    new Moving_Points(document.querySelector("#hero-canvas"), 30)
 }
 
 
 
-window.addEventListener("load", () => {
+// WHEN THE HOMEPAGE LOADS
+onPageLoad('/', () => {
 
-    if(window.location.pathname !== "/") return
+    init_moving_points()
 
     document.querySelector(".hero").style.height = `calc(100vh - ${window.getComputedStyle(document.querySelector("header")).height})`
 
     setTimeout(() => {
         document.querySelector("#scroll-down-icon").style.opacity = "1"
     }, 1500)
+
 })
