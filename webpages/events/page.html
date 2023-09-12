@@ -1,0 +1,97 @@
+title: EXCS | Events 📅
+
+=============================
+
+
+<script>
+
+    function parse_events(events) {
+        let html = ''
+
+        if(events.length === 0) {
+            return "<p>No Events</p>"
+        }
+
+        events.forEach(event => {
+            html += `
+            <li class='event'>
+                <div class='info'>
+                    <h5>${event.name}</h5>
+                    <p>${event.location}</p>
+                </div>
+                <p>${event.time}</p>
+            </li>
+            `
+        })
+
+        return html
+    }
+
+</script>
+
+
+<div class="page-padding" style="margin-bottom: 60px;">
+    <h2 class="excs-arrow-heading">Upcoming Events</h2>
+</div>
+
+<section class="page-padding flex col gap-m">
+
+    <div class="drop-down" x-data="{ open: false }">
+        <div class="top" @click="open = !open">
+            <h3>Social Events</h3>
+            <img x-bind:class="open ? 'open' : ''" class="icon" src="/resources/images/icons/excs-down-icon.svg">
+        </div>
+        <ul
+            x-show="open"
+            x-transition
+            ajax-get="/resources/events/2023-2024/socials.json"
+            ajax-parser="parse_events"
+            ajax-options="json:true"
+        ></ul>
+    </div>
+
+    <div class="drop-down" x-data="{ open: false }">
+        <div class="top" @click="open = !open">
+            <h3>Hackathons</h3>
+            <img x-bind:class="open ? 'open' : ''" class="icon" src="/resources/images/icons/excs-down-icon.svg">
+        </div>
+        <ul
+            x-show="open"
+            x-transition
+            ajax-get="/resources/events/2023-2024/hackathons.json"
+            ajax-parser="parse_events"
+            ajax-options="json:true"
+        ></ul>
+    </div>
+
+    <div class="drop-down" x-data="{ open: false }">
+        <div class="top" @click="open = !open">
+            <h3>Talks</h3>
+            <img x-bind:class="open ? 'open' : ''" class="icon" src="/resources/images/icons/excs-down-icon.svg">
+        </div>
+        <ul
+            x-show="open"
+            x-transition
+            ajax-get="/resources/events/2023-2024/talks.json"
+            ajax-parser="parse_events"
+            ajax-options="json:true"
+        ></ul>
+    </div>
+
+    <div class="drop-down" x-data="{ open: false }">
+        <div class="top" @click="open = !open">
+            <h3>Academic Events</h3>
+            <img x-bind:class="open ? 'open' : ''" class="icon" src="/resources/images/icons/excs-down-icon.svg">
+        </div>
+        <ul
+            x-show="open"
+            x-transition
+            ajax-get="/resources/events/2023-2024/academic.json"
+            ajax-parser="parse_events"
+            ajax-options="json:true"
+        ></ul>
+    </div>
+
+</section>
+
+

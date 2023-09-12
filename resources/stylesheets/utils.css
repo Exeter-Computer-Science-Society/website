@@ -1,0 +1,142 @@
+.mono {
+    font-family: var(--mono-font);
+}
+
+.accent {
+    color: var(--accent-colour);
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.text-strong {
+    color: var(--text-strong-colour);
+}
+
+.button {
+    border: 1.6px solid var(--accent-colour);
+    padding: 12px;
+    color: var(--accent-colour);
+    font-family: var(--mono-font);
+    background-color: transparent;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    display: inline-block;
+}
+
+.card {
+    border-radius: var(--border-radius);
+    background-color: var(--primary-colour);
+    background: radial-gradient(var(--primary-colour) 0%, var(--secondary-colour) 85%);
+    padding: var(--spacing-small);
+}
+
+.icon {
+    width: 1em;
+    height: 1em;
+    object-fit: contain;
+    display: inline;
+}
+
+.inline-flex {
+    display: inline-flex;
+}
+
+.flex {
+    display: flex;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.gap-s {
+    gap: var(--spacing-small);
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.gap-m {
+    gap: var(--spacing-medium);
+}
+
+.border-radius {
+    border-radius: var(--border-radius);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.large-heading {
+    font-size: 2rem;
+}
+
+.excs-arrow-heading {
+    display: flex;
+    align-items: center;
+}
+
+.excs-arrow-heading::before {
+    content: "";
+    height: 0.8em;
+    width: 1em;
+    margin-right: 0.4em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(/resources/images/icons/excs-right-arrow.svg);
+    background-position: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.m-hide {
+    display: unset;
+}
+
+.m-show-flex,
+.m-show-block {
+    display: none !important;
+}
+
+/* Mobile responsive styles */
+@media screen and (max-width: 800px) {
+    .m-hide {
+        display: none;
+    }
+    .m-show-flex {
+        display: flex !important;
+    }
+    .m-show-block {
+        display: block !important;
+    }
+}

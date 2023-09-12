@@ -1,0 +1,95 @@
+.committee {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: var(--spacing-medium);
+}
+
+.committee .person {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-medium);
+    gap: var(--spacing-medium);
+    text-align: left;
+}
+
+.committee .person .name {
+    color: var(--text-middle-colout);
+}
+
+.committee .person .role {
+    color: var(--text-strong-colour);
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.committee .person .image {
+    position: relative;
+    border: 1.2px solid var(--text-light-colour);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    width: 5rem;
+    height: 5rem;
+}
+
+.committee .person .image > img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.committee .person .image > .logo {
+    border-radius: var(--border-radius);
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+}
+
+.committee .person .image > .logo > img {
+    height: 2rem;
+    line-height: 0;
+}
+
+
+.committee .drawer {
+    display: flex;
+    gap: 8px;
+}
+
+.committee .drawer > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border-radius: var(--border-radius);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 6px;
+}
+
+.committee .drawer > a:hover {
+    background-color: var(--primary-colour);
+}
+
+
+
+
+
+
+
+
+
+/* Mobile responsive styles */
+@media screen and (max-width: 800px) {
+    .committee {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .committee .person p {
+        font-size: 0.9rem;
+        line-height: 140%;
+    }
+
+    .committee .person .role {
+        font-size: 1.2rem;
+    }
+}
