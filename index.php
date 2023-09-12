@@ -14,10 +14,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#1c1c1c">
 
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQTXG0VBX3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-BQTXG0VBX3');
+    </script>
+
     <!-- Import the Client Side Router -->
     <!-- Remove this if you don't wish to use the client-side routing function of the Headless CMS -->
     <script type="module" src="/headless-cms-scripts/client-side-router.js"></script>
-    <!-- <script defer src="/headless-cms-scripts/client-side-router.js"></script> -->
 
     <!-- Import html-ajax -->
     <script src="/scripts/html-ajax.js"></script>
