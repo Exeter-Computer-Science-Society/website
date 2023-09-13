@@ -89,7 +89,7 @@ header .link .icon {
 main {
     padding-top: 80px;
     min-height: 90vh;
-    animation: fadeInMain 0.4s forwards;
+    animation: fadeInMain 4s forwards;
 }
 
 main section:first-of-type {
