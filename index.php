@@ -30,6 +30,8 @@
     <script type="module" src="/headless-cms-scripts/client-side-router.js"></script>
 
     <!-- Import html-ajax -->
+    <script type="module" src="/scripts/html-ajax.js"></script>
+
     <script type="module" src="/scripts/global.js"></script>
 
     <!-- Import Alpine JS -->
