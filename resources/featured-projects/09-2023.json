@@ -1,0 +1,23 @@
+{
+    "name": "HTML-AJAX",
+    "image": "https://edigital.org.uk/portfolio/resources/images/ajax-html.png",
+    "description": [
+        "A tiny JS library used to extend the functionality og HTML and allows it to make HTTP requests to fetch data",
+        "Implemented using < 400 lines of JavaScript",
+        "Importing it is as simple as adding a <script> tag to a page"
+    ],
+    "github": "https://github.com",
+    "technologies": [
+        "JavaScript",
+        "HTML"
+    ],
+    "authors": [
+        {
+            "image": "/resources/images/featured-projects/authors/ed.jpeg",
+            "name": "Edward Blewitt",
+            "socials": {
+                "linkedin": "https://linkedin.com"
+            }
+        }
+    ]
+}

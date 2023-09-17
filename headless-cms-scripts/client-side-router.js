@@ -10,6 +10,7 @@
 
 // (These settings use the same names as specified in the README file of the headless-cms repository)
 
+
 class Client_Side_Router {
     constructor() {
 
@@ -236,6 +237,10 @@ class Cache_Item {
 
 // Initialise the client router
 window.router = new Client_Side_Router
+
+
+
+
 
 // Store events to be run when specific pages are loaded
 window.pageLoadEvents = {}

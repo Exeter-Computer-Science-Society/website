@@ -27,7 +27,7 @@
 
     <!-- Import the Client Side Router -->
     <!-- Remove this if you don't wish to use the client-side routing function of the Headless CMS -->
-    <script type="module" src="/headless-cms-scripts/client-side-router.js"></script>
+    <!-- <script type="module" src="/headless-cms-scripts/client-side-router.js"></script> -->
 
     <!-- Import html-ajax -->
     <script type="module" src="/scripts/html-ajax.js"></script>
@@ -79,6 +79,10 @@
             <a class="link m-show-flex" href="/">Home</a>
             <a class="link" href="/committee">Committee</a>
             <a class="link" href="/stash">Stash</a>
+            <a class="link flex align-center" href="/featured-projects">
+                <small class="accent">new </small>
+                Featured Projects
+            </a>
             <a class="link" href="/events">Events</a>
             <a target="_blank" class="link" href="https://my.exeterguild.com/groups/QRM97/computer-science-society/memberships">
                 <span>Memberships</span>
@@ -109,7 +113,7 @@
             <a class="accent underline" href="mailto:excs@groups.exeterguild.com">Let us know</a>
              or
             <a class="accent inline-flex align-center underline" style="gap: 1em;" href="https://github.com/Exeter-Computer-Science-Society/website">
-                fix it yourself!
+                fix it yourself
             </a>!
         </p>
 

@@ -1,0 +1,51 @@
+.example-message {
+    border-radius: var(--border-radius);
+    background-color: var(--primary-colour);
+    border: 1.2px solid var(--secondary-colour);
+    padding: var(--spacing-medium);
+    font-size: 1.2rem;
+}
+
+
+.meta {
+    width: 100%;
+    padding-bottom: 4px;
+    padding-left: 2px;
+    border-bottom: 1px solid var(--secondary-colour);
+}
+
+.example-message .message {
+    padding: var(--spacing-medium);
+    border: 1px solid var(--secondary-colour);
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+}
+
+
+.hero {
+    justify-content: space-between;
+    display: flex;
+    gap: var(--spacing-medium);
+}
+
+.hero-inner {
+
+}
+
+
+.laptop {
+    width: 14rem;
+}
+
+
+
+/* Mobile responsive styles */
+@media screen and (max-width: 800px) {
+    .hero {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .laptop {
+        width: 80%;
+    }
+}

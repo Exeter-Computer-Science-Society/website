@@ -14,6 +14,10 @@
     color: var(--text-strong-colour);
 }
 
+.text-middle {
+    color: var(--text-middle-colour);
+}
+
 .button {
     border: 1.6px solid var(--accent-colour);
     padding: 12px;
@@ -23,6 +27,7 @@
     font-weight: 500;
     border-radius: var(--border-radius);
     display: inline-block;
+    width: max-content;
 }
 
 .card {
@@ -30,6 +35,14 @@
     background-color: var(--primary-colour);
     background: radial-gradient(var(--primary-colour) 0%, var(--secondary-colour) 85%);
     padding: var(--spacing-small);
+}
+
+.big-card {
+    padding: var(--spacing-medium);
+}
+
+.big-card p {
+    font-size: 1.2rem;
 }
 
 .icon {
@@ -61,6 +74,10 @@
 
 .justify-center {
     justify-content: center;
+}
+
+.justify-right {
+    justify-content: right;
 }
 
 .space-between {

@@ -1,0 +1,160 @@
+title: Featured Projects
+
+======================
+
+
+
+
+<script>
+
+
+    
+    /**
+     * This function is used to parse the current featured project from the JSON from the server to HTML
+     * -----------
+     * Featured projects are stored in an external JSON file so that this web page does not need to
+     * be updated every single time that the current featured project changes.
+     */
+    function parse_featured_project(project) {
+
+
+        function escapeHtml(text) {
+            return text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, '&quot;')
+        }
+
+        let html = `
+            <div class="about flex col gap-m">
+                <div>
+                    <h3 class="flex align-center space-between gap-m">
+                        <span class="text-strong">${project?.name}</span>
+                        <small><small>By ${project?.authors.map(a => a.name).join(", ")}</small></small>
+                    </h3>
+                    <div class="technologies">
+                        ${project?.technologies.join("<span>•</span>")}
+                    </div>
+                </div>
+
+
+                <div>
+                    ${
+                        project?.image ? (
+                            `<img class="project-image" src="${project.image}">`
+                        ) : (
+                            ''
+                        )
+                    }
+                </div>
+
+
+                <div class="flex col gap-s">
+                    ${
+                        project.description?.map(text => `<p>${escapeHtml(text)}</p>`).join("")
+                    }
+                </div>
+
+                <div class="flex justify-right">
+                    ${
+                        project?.github ? (
+                            `<a class="button flex align-center gap-s" href="${project.github}">
+                                <span>View the project on GitHub</span>
+                                <img class="icon" src="/resources/images/icons/external-link-icon.svg">
+                            </a>`
+                        ) : (
+                            `<small><b>This project is not open source</b></small>`
+                        )
+                    }
+                </div>
+
+
+            </div>
+            <div class="flex col gap-s">
+                <div>
+                    <small class="accent">Created by</small>
+                </div>
+                <div class="flex gap-s wrap">
+                    ${
+                        project?.authors.map(author => {
+                            return `<div class="profile">
+                                <div class="flex align-center gap-s">
+                                    ${
+                                        // Author's image
+                                        author?.image ? (
+                                            `<img class="image" src="${author.image}">`
+                                        ) : (
+                                            ``
+                                        )
+                                    }
+                                    <div>
+                                        <p>
+                                            ${
+                                                // Author's name
+                                                author?.name ? (
+                                                    `<b>${author.name}</b>`
+                                                ) : (
+                                                    ``
+                                                )
+                                            }
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>`
+                        }).join("")
+                    }
+                </div>
+            </div>
+                
+        `
+
+        return html
+    }
+</script>
+
+
+
+
+<section class="top-section page-padding flex col gap-m">
+
+    <h3 class="excs-arrow-heading">EXCS Featured Projects</h3>
+
+    <p class="text-strong">Raise awareness + get awarded for a project you are working on in your free time!</p>
+
+    <p>Every month, the society picks the best of the submitted projects and features it here! The wining project and its author(s) is awarded with a certificate and a mention on our socials! + Looks great on your CV!</p>
+
+    <p>
+        <a class="accent flex align-center gap-s" href="/featured-projects/apply">
+            <span>Let people know about what you're working on</span>
+            <img class="icon" src="/resources/images/icons/excs-right-arrow.svg">
+        </a>
+    </p>
+</section>
+
+<section class="page-padding">
+
+    <h1 class="excs-arrow-heading">This Month's Winning Project</h1>
+
+    <article
+        class="project flex col gap-m"
+        ajax-get="/resources/featured-projects/09-2023.json"
+        ajax-parser="parse_featured_project"
+        ajax-options="json:true"
+    ></article>
+
+</section>
+
+<section class="page-padding">
+
+    <article class="card big-card flex col gap-s">
+        <h3 class="accent">Want your project to appear here?</h3>
+        <p>EXCS wants to support you with what you code in your free time! Have a project that you are working on? </p>
+        <p>Tell us about it for a chance for it to be featured here</p>
+        <br>
+        <div>
+            <a class="button" href="/featured-projects/apply">Tell us about it here</a>
+        </div>
+    </article>
+
+</section>

@@ -1,0 +1,36 @@
+.project {
+    padding: var(--spacing-medium);
+    border: 2px solid var(--secondary-colour);
+    background-color: var(--primary-colour);
+    border-radius: var(--border-radius);
+}
+
+.project .project-image {
+    max-height: 12rem;
+    border-radius: var(--border-radius);
+}
+
+.project .about {
+    flex: 1;
+}
+
+.project .technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.project .profile {
+    width: max-content;
+    padding: var(--spacing-small);
+    border: 2px solid var(--secondary-colour);
+    border-radius: var(--border-radius);
+
+}
+
+.project .profile .image {
+    width: 2rem;
+    height: 2rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
