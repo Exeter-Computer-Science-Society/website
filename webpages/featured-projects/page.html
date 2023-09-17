@@ -38,7 +38,6 @@ title: Featured Projects
                     </div>
                 </div>
 
-
                 <div>
                     ${
                         project?.image ? (
@@ -49,6 +48,7 @@ title: Featured Projects
                     }
                 </div>
 
+                <br>
 
                 <div class="flex col gap-s">
                     ${
@@ -56,7 +56,9 @@ title: Featured Projects
                     }
                 </div>
 
-                <div class="flex justify-right">
+                <br>
+
+                <div class="flex justify-center">
                     ${
                         project?.github ? (
                             `<a class="button flex align-center gap-s" href="${project.github}">
@@ -99,6 +101,22 @@ title: Featured Projects
                                                 )
                                             }
                                         </p>
+                                        <div class="socials">
+                                            ${
+                                                author?.socials ? (
+                                                    Object.keys(author.socials).map(name => {
+                                                        switch (name) {
+                                                            case "linkedin":
+                                                                return `<a href="${author.socials[name]}"><img src="/resources/images/icons/linkedin.svg"></a>`
+                                                            default:
+                                                                return `<a href="${author.socials[name]}"><img src="/resources/images/icons/world-globe-line-icon.svg"></a>`
+                                                        }
+                                                    }).join("")
+                                                ) : (
+                                                    ''
+                                                )
+                                            }
+                                        </div>
                                     </div>
                                 </div>
                             </div>`
@@ -118,7 +136,7 @@ title: Featured Projects
 
 <section class="top-section page-padding flex col gap-m">
 
-    <h3 class="excs-arrow-heading">  Featured Projects</h3>
+    <h3 class="excs-arrow-heading">EXCS Featured Projects</h3>
 
     <p class="text-strong">Raise awareness + get awarded for a project you are working on in your free time!</p>
 
@@ -149,7 +167,7 @@ title: Featured Projects
 
     <article class="card big-card flex col gap-s">
         <h3 class="accent">Want your project to appear here?</h3>
-        <p>EXCS wants to support you with what you code in your free time! Have a project that you are working on? </p>
+        <p>EXCS wants to support you with what you work on in your free time! Have a project that you are working on? </p>
         <p>Tell us about it for a chance for it to be featured here</p>
         <br>
         <div>

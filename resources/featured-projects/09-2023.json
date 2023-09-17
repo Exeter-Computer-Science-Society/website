@@ -2,11 +2,12 @@
     "name": "HTML-AJAX",
     "image": "https://edigital.org.uk/portfolio/resources/images/ajax-html.png",
     "description": [
-        "A tiny JS library used to extend the functionality og HTML and allows it to make HTTP requests to fetch data",
-        "Implemented using < 400 lines of JavaScript",
-        "Importing it is as simple as adding a <script> tag to a page"
+        "A tiny JS library used to extend the functionality of HTML.",
+        "Allows HTML to make HTTP requests to fetch and post data AFTER the page has loaded.",
+        "Use custom attributes to specify where to fetch data from, and how to pre-process responses. Also ships with a custom events system, allowing HTML elements all over your page to trigger requests.",
+        "All of this, implemented in less than 250 lines of JavaScript"
     ],
-    "github": "https://github.com",
+    "github": "https://github.com/Littled2/html-ajax",
     "technologies": [
         "JavaScript",
         "HTML"
@@ -16,7 +17,7 @@
             "image": "/resources/images/featured-projects/authors/ed.jpeg",
             "name": "Edward Blewitt",
             "socials": {
-                "linkedin": "https://linkedin.com"
+                "linkedin": "https://www.linkedin.com/in/edward-blewitt-a1b257224/"
             }
         }
     ]

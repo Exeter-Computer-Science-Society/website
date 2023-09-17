@@ -35,3 +35,24 @@
     object-fit: cover;
     border-radius: 50%;
 }
+
+.socials {
+    display: flex;
+    gap: var(--spacing-small);
+    flex-wrap: wrap;
+}
+
+.socials > a {
+    padding: 4px;
+    border-radius: 2px;
+}
+
+.socials > a:hover {
+    background-color: var(--primary-colour);
+}
+
+.socials > a > img {
+    width: 0.8rem;
+    height: 0.8rem;
+    object-fit: contain;
+}

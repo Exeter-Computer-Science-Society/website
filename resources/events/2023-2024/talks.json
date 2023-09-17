@@ -1,1 +1,17 @@
-[]
+[
+    {
+        "name": "Intro to GDPR",
+        "time": "",
+        "location": ""
+    },
+    {
+        "name": "Into to Blockchain",
+        "time": "",
+        "location": ""
+    },
+    {
+        "name": "Intro to Rust",
+        "time": "",
+        "location": ""
+    }
+]
