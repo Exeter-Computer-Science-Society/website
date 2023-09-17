@@ -25,16 +25,14 @@
 .hero {
     justify-content: space-between;
     display: flex;
+    align-items: center;
     gap: var(--spacing-medium);
 }
 
-.hero-inner {
-
-}
 
 
-.laptop {
-    width: 14rem;
+.hero-image {
+    width: 40%;
 }
 
 
@@ -45,7 +43,7 @@
         flex-direction: column-reverse;
         align-items: center;
     }
-    .laptop {
+    .hero-image {
         width: 80%;
     }
 }

@@ -8,6 +8,7 @@
 .project .project-image {
     max-height: 12rem;
     border-radius: var(--border-radius);
+    max-width: 100%;
 }
 
 .project .about {
