@@ -83,3 +83,23 @@
     border: 2px solid var(--secondary-colour);
     padding: var(--spacing-medium);
 }
+
+
+
+
+
+
+
+
+/* Mobile responsive styles */
+@media screen and (max-width: 800px) {
+    .project-inner {
+        flex-direction: column;
+    }
+    .project-inner .project-image-cont {
+        width: 100%;
+    }
+    .project-btns {
+        flex-direction: column-reverse;
+    }
+}
