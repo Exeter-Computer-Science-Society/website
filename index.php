@@ -30,9 +30,9 @@
     <!-- <script type="module" src="/headless-cms-scripts/client-side-router.js"></script> -->
 
     <!-- Import html-ajax -->
-    <script type="module" src="/scripts/html-ajax.js?tag=new"></script>
+    <script type="module" src="/scripts/html-ajax.js?tag=new_1"></script>
 
-    <script type="module" src="/scripts/global.js?tag=new"></script>
+    <script type="module" src="/scripts/global.js?tag=new_1"></script>
 
     <!-- Import Alpine JS -->
     <!-- Remove this if you don't wish to use Alpine JS across you webpages -->
@@ -60,9 +60,9 @@
 
 
     <!-- Add stylesheet imports here -->
-    <link rel="stylesheet" href="/resources/stylesheets/globals.css">
-    <link rel="stylesheet" href="/resources/stylesheets/default-styles.css">
-    <link rel="stylesheet" href="/resources/stylesheets/utils.css">
+    <link rel="stylesheet" href="/resources/stylesheets/globals.css?tag=new_1">
+    <link rel="stylesheet" href="/resources/stylesheets/default-styles.css?tag=new_1">
+    <link rel="stylesheet" href="/resources/stylesheets/utils.css?tag=new_1">
 
 
 

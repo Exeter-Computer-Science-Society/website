@@ -1,3 +1,38 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-medium);
+}
+
+.hero-image-cont {
+    width: 40%;
+}
+
+.hero-image-cont > img {
+    max-width: 100%;
+}
+
+.top-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-small);
+    margin-bottom: var(--spacing-small);
+}
+
+.card {
+    padding: var(--spacing-medium);
+}
+
+.top-cards .card {
+    background: none;
+    border: 2px solid var(--secondary-colour);
+}
+
+.top-cards .card .icon {
+    height: 2rem;
+}
+
 .project {
     padding: var(--spacing-medium);
     border: 2px solid var(--secondary-colour);
@@ -6,7 +41,6 @@
 }
 
 .project .project-image {
-    max-height: 12rem;
     border-radius: var(--border-radius);
     max-width: 100%;
 }
@@ -21,38 +55,31 @@
     gap: 1em;
 }
 
-.project .profile {
-    width: max-content;
-    padding: var(--spacing-small);
-    border: 2px solid var(--secondary-colour);
-    border-radius: var(--border-radius);
-
-}
-
-.project .profile .image {
-    width: 2rem;
-    height: 2rem;
-    object-fit: cover;
+.author-image {
+    width: 2em;
+    height: 2em;
     border-radius: 50%;
 }
 
-.socials {
+.project-inner {
+    display: flex;
+    gap: var(--spacing-medium);
+}
+
+.project-inner .project-image-cont {
+    width: 40%;
+}
+
+.project-inner .project-info {
+    width: 60%;
+}
+
+.project-btns {
     display: flex;
     gap: var(--spacing-small);
-    flex-wrap: wrap;
 }
 
-.socials > a {
-    padding: 4px;
-    border-radius: 2px;
-}
-
-.socials > a:hover {
-    background-color: var(--primary-colour);
-}
-
-.socials > a > img {
-    width: 0.8rem;
-    height: 0.8rem;
-    object-fit: contain;
+.explanation {
+    border: 2px solid var(--secondary-colour);
+    padding: var(--spacing-medium);
 }

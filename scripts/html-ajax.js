@@ -1,250 +1,233 @@
-window.addEventListener("load", ajax_init)
+class ajax_control {
 
+    init() {
+        // Get elements that trigger ajax events
+        document.querySelectorAll("*[ajax-event]").forEach(element => {
 
-function ajax_init() {
+            // Get the name of this trigger
+            let event_name =  element.getAttribute("ajax-event")
+            if(!event_name) return
 
-    window.ajax = {}
-    window.ajax.listeners = {}
-
-    document.querySelectorAll("*[ajax-get]").forEach(el => {
-
-        // Get the URL of the requested resource
-        let url = el.getAttribute("ajax-get")
-    
-        // Get and parse any options provided by the ajax-options attribute
-        let options = el.getAttribute("ajax-options")
-        if(options) {
-            options = parse_options(options)
-        }
-
-        // Get the parser function if there is a parser function
-        let parser = get_valid_function(el.getAttribute("ajax-parser"))
-
-        // If this request is to be repeated, then a trigger will be used
-        let listener = el.getAttribute("ajax-listener")
-        if(listener) {
-            // Add this element to its respective listener
-
-            // Check if listener already exists
-            if(!Object(window.ajax.listeners).hasOwnProperty(listener)) {
-                window.ajax.listeners[listener] =  []
+            // Get the event that causes the trigger, default to click
+            let trigger_name = element.getAttribute("ajax-trigger")
+            if(!trigger_name) {
+                // Default is 'click' unless element is a <form>
+                // In which case, the default trigger is 'ajax-post-complete' event
+                // This will run after the POST request completes
+                trigger_name = element.tagName !== "FORM" ? "click" : "ajax-post-complete"
             }
 
-            window.ajax.listeners[listener].push([ url, el, parser, options ])
-        }    
-        
-        // Exit early if the ajax query is not supposed to be run initially
-        if(el.hasAttribute("ajax-defer")) return
+            // When the event occurs, run the attached callbacks
+            element.addEventListener(trigger_name, () => this.execute_event(event_name))
 
-        // Make the AJAX request
-        ajax_get(url, el, parser, options)
-    })
+        })
 
-    // Get elements that trigger ajax events
-    document.querySelectorAll("*[ajax-event]").forEach(el => {
+        document.querySelectorAll("*[ajax-get]").forEach(element => {
+            if(element.hasAttribute("ajax-defer")) return
+            this.execute_element(element)
+        })
 
-        // Get the name of this trigger
-        let trigger_name =  el.getAttribute("ajax-event")
-        if(!trigger_name) return
-
-        // Get the event that causes the trigger, default to click
-        let event_name = el.getAttribute("ajax-trigger")
-        if(!event_name) {
-            // Default is 'click' unless element is a <form>
-            // In which case, the default trigger is 'ajax-post-complete' event
-            // This will run after the POST request completes
-            event_name = el.tagName !== "FORM" ? "click" : "ajax-post-complete"
-        }
-
-        el.addEventListener(event_name, () => ajax_event(trigger_name))
-
-    })
-
-    // Get elements that trigger ajax events
-    document.querySelectorAll("*[ajax-post]").forEach(el => {
-
-        // Get the endpoint that the data will be submitted to
-        const url = el.getAttribute("ajax-post")
-
-        if(el.tagName !== "FORM") {
-            console.warn("ajax-post must be defined on a <form> tag")
-            return
-        }
-
-        // Get the input elements that need to be submitted
-        const inputs = el.querySelectorAll("*[ajax-data]")
-
-        let options = el.getAttribute("ajax-options")
-        if(options) {
-            options = parse_options(options)
-        }
-            
-        // Handle the submission
-        el.addEventListener("submit", e => ajax_submit(e, url, el, inputs, options))
-
-    })
-
-
-
-    function ajax_event(name) {
-        
-        // Executes an ajax event
-        if(!Object(window.ajax.listeners).hasOwnProperty(name)) return
-
-        for (let i = 0; i < window.ajax.listeners[name].length; i++) {
-            const [ url, el, parser, options ] = window.ajax.listeners[name][i]
-            // Gets the parameters for this listening element
-            ajax_get(url, el, parser, options)
-        }
+        document.querySelectorAll("*[ajax-post]").forEach(element => {
+            if(element.tagName !== "FORM") {
+                console.error("ajax-post only forms on <form> elements")
+                return
+            }
+            element.addEventListener("submit", (e) => this.capture_form_submit(e))
+        })
     }
-    
-    
-    async function ajax_get(url, element, parser, options) {
-        let response
+
+
+    /**
+     * Executes an ajax event
+     * @param {String} ajax_event_name The name of the ajax event
+     */
+    execute_event(ajax_event_name) {
+
+        // Get any listening elements
+        const listeners = document.querySelectorAll(`*[ajax-listener=${ajax_event_name}]`)
+
+        listeners.forEach(element => this.execute_element(element))
+
+    }
+
+
+    /**
+     * Carries out this element's HTTP request
+     * @param {HTMLElement} element The element being executed
+     */
+    async execute_element(element) {
+        // Make the GET/POST request
+        let data = await this.server_request(element)
+        // Process the response
+        data = this.process_raw_data(data, element)
+        
+        if(element.hasAttribute("ajax-provide")) {
+            this.feed_data_to_users(data, element)
+        }
+
+        this.write_data_to_element(data, element)
+
+    }
+
+
+    feed_data_to_users(data, element) {
+
+        let provider_identifier = element.getAttribute("ajax-provide")
+
+        let users = document.querySelectorAll(`*[ajax-use^=${provider_identifier}]`)
+
+        users.forEach(consumer => this.feed_to_element(data, consumer))
+
+    }
+
+    /**
+     * Used to pass data to a HTML element
+     * @param {} raw_data The data being passed to the element
+     * @param {HTMLElement} consumer The element being passed the data
+     */
+    feed_to_element(raw_data, consumer) {
+
+        let data = this.process_raw_data(raw_data, consumer)
+
+        this.write_data_to_element(data, consumer)
+
+    }
+
+
+    /**
+     * Carries out the relevant server request for the given element
+     * @param {HTMLElement} element The element in question
+     */
+    async server_request(element) {
+
+        let raw_data
+
+        if(element.hasAttribute("ajax-get")) {
+            raw_data = await this.get(element.getAttribute("ajax-get"))
+        } else if(element.hasAttribute("ajax-post")) {
+            raw_data = await this.post(element.getAttribute("ajax-post"))
+        } else {
+            console.error(element, "Has neither an ajax-get or ajax-post attribute")
+        }
+
+        return raw_data
+    }
+
+    async get(url) {
         try {
             let res = await fetch(url)
             if(!res.ok) throw `Status Code: ${res.status}`
-            response = await res.text()
-
-            // Parse response to JSON
-            if(options?.json) {
-                response = JSON.parse(response)
-            }
-
+            return await res.text()
         } catch (error) {
-            report_error(`Something went wrong during ajax-get from: ${url}`, error)
-            element.innerHTML = 'Something went wrong'
-            return
+            console.error(`Something went wrong during ajax-get from: ${url}`, error)
+            return null
         }
-
-        // Check if there is a parser function to parse the data
-        // Otherwise just write the exact response
-        if(parser) {
-            response = execute_parser(parser, response, url)        
-        }
-
-        if(options?.['write-as-text']) {
-            element.innerText = response
-            return
-        }
-        
-        element.innerHTML = response
     }
-    
 
-    async function ajax_post(url, body) {
+    async post(url, data) {
         try {
-            let response = await fetch(url, {
+            let res = await fetch(url,
+            {
                 method: "POST",
-                body: body
+                body: data
             })
-
-            if(!response.ok) throw `Server Returned Status Code: ${response.status}`
-
-            // Read the response message from the server
-            return await response.text()
+            if(!res.ok) throw `Status Code: ${res.status}`
+            return await res.text()
         } catch (error) {
-            report_error("Could not submit form", error)
-            return "Error Submitting"
+            console.error(`Something went wrong during ajax-get from: ${url}`, error)
+            return null
         }
     }
-    
-    
-    function parse_options(options_string) {
-        // Returns an object with the key-values contained in the options_string
-        let options = {}
-    
-        try {
-    
-            options_string.trim()
-    
-            // Split options into key-value pairs
-            let key_vals = options_string.replace(/ /g, "").split(",")
-    
-            for (let i = 0; i < key_vals.length; i++) {
-    
-                // Get key and value pairs from each option
-                let [k, v] = key_vals[i].split(":")
-    
-                // Handle boolean values
-                if(v === "true") {
-                    v = true
-                } else if (v === "false") {
-                    v = false
-                }
 
-                // If key-only
-                if(v === undefined) {
-                    options[k] = true
-                    continue
-                }
-    
-                // Assign the value to this key on the options object
-                options[k] = v
+    capture_form_submit(e) {
+        e.preventDefault()
+        this.execute_element(e.target)
+    }
+
+    /**
+     * Ensure all data has been processed
+     * @param {*} raw_data 
+     * @param {*} element 
+     */
+    process_raw_data(raw_data, element) {
+
+        let data = raw_data
+
+        if(element.hasAttribute("ajax-use")) {
+            data = this.use_data(data, element)
+        }
+
+        if(element.hasAttribute("ajax-parse-json")) {
+            try {
+                data = JSON.parse(data)
+            } catch (error) {
+                console.error("Error parsing JSON", error)
+                return null
             }
-            
-            // Ensure options is an object
-            return options !== '' ? options : {}
-    
-        } catch (error) {
-            report_error("Malformed options string", error)
-            return {}
-        }
-    }
-    
-    
-    
-    function get_valid_function(parser_name) {
-        if(parser_name && Object(window).hasOwnProperty(parser_name)  && typeof window[parser_name] === "function") {
-            return window[parser_name]
-        }
-        return null
-    }
-    
-    
-    
-    function execute_parser(parser, data, url) {
-        try {
-            return parser(data)
-        } catch (error) {
-            report_error(`error parsing data from ${url}`, error)
-            return 'An error occurred'
-        }
-    }
-    
-    
-    
-    function report_error(message, error) {
-        if(error) console.error(error)
-        console.error(error ? `html-ajax: INFO ABOUT THE ABOVE ERROR \n ${message}` : `ajax-get ${message}`)
-    }
-
-
-    async function ajax_submit(event, url, form_element, input_elements, options) {
-        // Disable the default form submission behavior
-        event.preventDefault()
-
-        let form_data = new FormData()
-
-        // Extract the data from the form
-        for (const input of input_elements) {
-            form_data.append(input.getAttribute("ajax-data"), input.value)
         }
 
-        // Post the data to the server
-        let response = await ajax_post(url, form_data)
+        if(element.hasAttribute("ajax-parser")) {
+            try {
+                data = window[element.getAttribute("ajax-parser")](data)
+            } catch (error) {
+                console.error("Error executing parser function:", element.getAttribute("ajax-parser"), ", ", error)
+                return null
+            }
+        }
 
-
-        // Dispatch the 'ajax-post-complete' event when the POST request is complete
-        const submit_complete_event = new Event("ajax-post-complete")
-        form_element.dispatchEvent(submit_complete_event)
-
-
-        if(!options || options?.overwrite === false) return
-        
-        // Default: Write the response over the form
-        form_element.innerHTML = response
-
-
+        return data
     }
+
+
+    use_data(data, element) {
+        let section = data
+        let parts = element.getAttribute("ajax-use").split(".")
+        parts.shift()
+        parts.forEach(part => {
+            section = section[part]
+        })
+        return section
+    } 
+
+    post_data(element) {
+
+        let raw_data
+
+        if(element.hasAttribute("ajax-get")) {
+            raw_data = this.get(element.getAttribute("ajax-get"))
+        } else if(element.hasAttribute("ajax-post")) {
+            raw_data = this.post(element.getAttribute("ajax-post"), this.get_post_data(element))
+        }
+    }
+
+    /**
+     * Returns the data to be posted
+     * @param {HTMLElement} element The Element that is making the POST request
+     */
+    get_post_data(formElement) {
+        return new FormData(formElement)
+    }
+
+
+    /**
+     * Writes data to the element
+     * @param {HTMLElement} element The element being written to
+     * @param {String} html The HTML string to be written
+     */
+    write_data_to_element(html, element) {
+
+        if(element.hasAttribute("ajax-no-write")) return
+
+        if(!element.hasAttribute("ajax-write-as-text")) {
+            element.innerHTML = html
+        } else {
+            element.innerText = html
+        }
+    }
+
 }
+
+
+window.ajax_control = new ajax_control()
+
+window.addEventListener("load", window.ajax_control.init())

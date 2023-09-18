@@ -24,10 +24,15 @@
     color: var(--accent-colour);
     font-family: var(--mono-font);
     background-color: transparent;
-    font-weight: 500;
+    font-weight: 600;
     border-radius: var(--border-radius);
     display: inline-block;
     width: max-content;
+}
+
+.filled-button {
+    background-color: var(--accent-colour);
+    color: var(--bg-colour);
 }
 
 .card {
@@ -155,5 +160,8 @@
     }
     .m-show-block {
         display: block !important;
+    }
+    .button {
+        width: unset;
     }
 }

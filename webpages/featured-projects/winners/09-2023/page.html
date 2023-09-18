@@ -1,0 +1,78 @@
+title: Winner 09/2023
+
+
+=================
+
+<section class="page-padding top-section">
+    <h2 class="">
+        <span class="text-strong">Project Name</span>
+        <span> - Author Name(s)</span>
+    </h2>
+
+    <hr>
+
+    <div class="flex gap-s wrap">
+        <span>Tech</span>
+        <span>Names</span>
+    </div>
+</section>
+
+<section class="page-padding">
+    <img src="/resources/"
+</section>
+
+<section class="page-padding flex col gap-m">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur aliquid quo eaque doloremque, debitis vero exercitationem porro nam maiores minima facere dolorem tempore pariatur sapiente quod inventore earum nesciunt fugiat.</p>
+</section>
+
+<div class="flex col gap-s">
+    <div>
+        <small class="accent">Created by</small>
+    </div>
+    <div class="flex gap-s wrap">
+        ${
+            project?.authors.map(author => {
+                return `<div class="profile">
+                    <div class="flex align-center gap-s">
+                        ${
+                            // Author's image
+                            author?.image ? (
+                                `<img class="image" src="${author.image}">`
+                            ) : (
+                                ``
+                            )
+                        }
+                        <div>
+                            <p>
+                                ${
+                                    // Author's name
+                                    author?.name ? (
+                                        `<b>${author.name}</b>`
+                                    ) : (
+                                        ``
+                                    )
+                                }
+                            </p>
+                            <div class="socials">
+                                ${
+                                    author?.socials ? (
+                                        Object.keys(author.socials).map(name => {
+                                            switch (name) {
+                                                case "linkedin":
+                                                    return `<a href="${author.socials[name]}"><img src="/resources/images/icons/linkedin.svg"></a>`
+                                                default:
+                                                    return `<a href="${author.socials[name]}"><img src="/resources/images/icons/world-globe-line-icon.svg"></a>`
+                                            }
+                                        }).join("")
+                                    ) : (
+                                        ''
+                                    )
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>`
+            }).join("")
+        }
+    </div>
+</div>

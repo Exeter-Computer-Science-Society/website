@@ -7,161 +7,175 @@ title: Featured Projects
 
 <script>
 
+    function escapeHtml(text) {
+        return text
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, '&quot;')
+    }
+
+    function parse_authors_names(authors) {
+        return authors.map(a => a.name).join()
+    }
 
     
-    /**
-     * This function is used to parse the current featured project from the JSON from the server to HTML
-     * -----------
-     * Featured projects are stored in an external JSON file so that this web page does not need to
-     * be updated every single time that the current featured project changes.
-     */
-    function parse_featured_project(project) {
-
-
-        function escapeHtml(text) {
-            return text
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/"/g, '&quot;')
-        }
-
-        let html = `
-            <div class="about flex col gap-m">
-                <div>
-                    <h3 class="flex align-center space-between gap-m">
-                        <span class="text-strong">${project?.name}</span>
-                        <small class="m-hide"><small>By ${project?.authors.map(a => a.name).join(", ")}</small></small>
-                    </h3>
-                    <div class="technologies">
-                        ${project?.technologies.join("<span>•</span>")}
-                    </div>
-                </div>
-
-                <div>
-                    ${
-                        project?.image ? (
-                            `<img class="project-image" src="${project.image}">`
-                        ) : (
-                            ''
-                        )
-                    }
-                </div>
-
-                <br>
-
-                <div class="flex col gap-s">
-                    ${
-                        project.description?.map(text => `<p>${escapeHtml(text)}</p>`).join("")
-                    }
-                </div>
-
-                <br>
-
-                <div class="flex justify-center">
-                    ${
-                        project?.github ? (
-                            `<a class="button flex align-center gap-s" href="${project.github}">
-                                <span>View the project on GitHub</span>
-                                <img class="icon" src="/resources/images/icons/external-link-icon.svg">
-                            </a>`
-                        ) : (
-                            `<small><b>This project is not open source</b></small>`
-                        )
-                    }
-                </div>
-
-
-            </div>
-            <div class="flex col gap-s">
-                <div>
-                    <small class="accent">Created by</small>
-                </div>
-                <div class="flex gap-s wrap">
-                    ${
-                        project?.authors.map(author => {
-                            return `<div class="profile">
-                                <div class="flex align-center gap-s">
-                                    ${
-                                        // Author's image
-                                        author?.image ? (
-                                            `<img class="image" src="${author.image}">`
-                                        ) : (
-                                            ``
-                                        )
-                                    }
-                                    <div>
-                                        <p>
-                                            ${
-                                                // Author's name
-                                                author?.name ? (
-                                                    `<b>${author.name}</b>`
-                                                ) : (
-                                                    ``
-                                                )
-                                            }
-                                        </p>
-                                        <div class="socials">
-                                            ${
-                                                author?.socials ? (
-                                                    Object.keys(author.socials).map(name => {
-                                                        switch (name) {
-                                                            case "linkedin":
-                                                                return `<a href="${author.socials[name]}"><img src="/resources/images/icons/linkedin.svg"></a>`
-                                                            default:
-                                                                return `<a href="${author.socials[name]}"><img src="/resources/images/icons/world-globe-line-icon.svg"></a>`
-                                                        }
-                                                    }).join("")
-                                                ) : (
-                                                    ''
-                                                )
-                                            }
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>`
-                        }).join("")
-                    }
-                </div>
-            </div>
-                
-        `
-
-        return html
+    function parse_technologies(technologies) {
+        return technologies.join('<span>•</span>')
     }
+
+    function parse_project_image(imageURL) {
+        return `<img class="project-image" src="${imageURL}">`
+    }
+
+    function parse_description(description) {
+        return description.map(text => `<p>${escapeHtml(text)}</p>`).join("")
+    }
+
+    function parse_buttons(project) {
+        return project?.github ? (
+            `<a class="button flex align-center gap-s" href="${project.github}" target="_blank">
+                <span>View on GitHub</span>
+                <img class="icon" src="/resources/images/icons/github.svg">
+            </a>
+
+            <a class="button filled-button flex align-center gap-s" href="/featured-projects/winner"">
+                <span>View Full</span>
+            </a>`
+        ) : (
+            `<a class="button filled-button flex align-center gap-s" href="/featured-projects/winner"">
+                <span>View Full</span>
+            </a>`
+        )
+    }
+
 </script>
 
 
 
 
-<section class="top-section page-padding flex col gap-m">
+<section class="top-section page-padding hero text-center">
 
-    <h3 class="excs-arrow-heading">EXCS Featured Projects</h3>
+    <div class="hero-image-cont">
+        <img src="/resources/images/solo-programming.png">
+    </div>
 
-    <p class="text-strong">Raise awareness + get awarded for a project you are working on in your free time!</p>
+    <h1 class="excs-arrow-heading text-middle">EXCS Featured Projects</h1>
 
-    <p>Every month, the society picks the best of the submitted projects and features it here! The wining project and its author(s) is awarded with a certificate and a mention on our socials! + Looks great on your CV!</p>
+    <h5 class="text-middle">Raise awareness + get awarded for a project you are working on in your free time!</h5>
 
-    <p>
-        <a class="accent flex align-center gap-s" href="/featured-projects/apply">
-            <span>Let people know about what you're working on</span>
-            <img class="icon" src="/resources/images/icons/excs-right-arrow.svg">
-        </a>
-    </p>
+</section>
+
+<section class="page-padding top-cards">
+    
+    <div class="card flex col gap-m text-center align-center">
+        <!-- <img class="icon" src="/resources/images/icons/excs-one.svg"> -->
+        <h1>✨</h1>
+        <h5 class="text-strong">Boost awareness about your project!</h5>
+        <p class="text-middle">Your project will be featured on the excs.uk website and on our Instagram.</p>
+    </div>
+
+    <div class="card flex col gap-m text-center align-center">
+        <!-- <img class="icon" src="/resources/images/icons/excs-two.svg"> -->
+        <h1>💪</h1>
+        <h5 class="text-strong">Show off your skills</h5>
+        <p class="text-middle">Flex on other computer scientists with your superior code</p>
+    </div>
+
+    <div class="card flex col gap-m text-center align-center">
+        <!-- <img class="icon" src="/resources/images/icons/excs-three.svg"> -->
+        <h1>🏆</h1>
+        <h5 class="text-strong">Receive an official award</h5>
+        <p class="text-middle">You will receive a certificate & an e-certificate. Add it to your LinkedIn and boost your CV!</p>
+    </div>
+   
+</section>
+
+<section class="page-padding text-center flex justify-center">
+    <a class="flex gap-s align-center accent" href="/featured-projects/apply">Enter your own project here <img class="icon" src="/resources/images/icons/excs-right-arrow.svg"></a>
+</section>
+
+<section
+    class="page-padding flex col gap-m"
+    ajax-get="/resources/featured-projects/09-2023.json"
+    ajax-parse-json
+    ajax-no-write
+    ajax-provide="winner"
+>
+
+    <h2>
+        <span>
+            🥂 This Month's Winning Project -
+        </span>
+        <span
+            ajax-use="winner.authors"
+            ajax-parser="parse_authors_names"
+        ></span>
+    </h2>
+
+    <article class="project flex col gap-m">
+
+        <div class="about flex col gap-m">
+            <div>
+                <h3 class="flex align-center space-between gap-m">
+                    <span class="text-strong" ajax-use="winner.name"></span>
+                    <small class="m-hide"><small>By <span ajax-use="winner.authors" ajax-parser="parse_authors_names"></span></small></small>
+                </h3>
+                <div
+                    class="technologies"
+                    ajax-use="winner.technologies"
+                    ajax-parser="parse_technologies"
+                ></div>
+            </div>
+
+            <div class="project-inner">
+                <div
+                    class="project-image-cont"
+                    ajax-use="winner.image"
+                    ajax-parser="parse_project_image"
+                ></div>
+
+                <div class="project-info">
+                    <div 
+                        class="flex col gap-s"
+                        ajax-use="winner.description"
+                        ajax-parser="parse_description"
+                    ></div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div
+            class="project-btns"
+            ajax-use="winner"
+            ajax-parser="parse_buttons"
+        >
+
+    </article>
+
+
+    
+
+
 </section>
 
 <section class="page-padding">
-
-    <h1 class="excs-arrow-heading">This Month's Winning Project</h1>
-
-    <article
-        class="project flex col gap-m"
-        ajax-get="/resources/featured-projects/09-2023.json"
-        ajax-parser="parse_featured_project"
-        ajax-options="json:true"
-    ></article>
-
+    <div class="explanation flex col gap-m">
+        <h3 class="excs-arrow-heading text-middle">How do featured projects work?</h3>
+        <p>Every month, the society picks the best of the submitted projects and features it here! The wining project and its author(s) is awarded with a certificate and a mention on our socials! + Looks great on your CV!</p>
+        <br>
+        <p>
+           <a class="button" href="/featured-projects/apply">
+               <span>Learn more</span>
+               <img class="icon" src="/resources/images/icons/excs-right-arrow.svg">
+           </a>
+       </p>
+   </div>
 </section>
+
 
 <section class="page-padding">
 
@@ -171,7 +185,7 @@ title: Featured Projects
         <p>Tell us about it for a chance for it to be featured here</p>
         <br>
         <div>
-            <a class="button" href="/featured-projects/apply">Tell us about it here</a>
+            <a class="button" href="/featured-projects/apply">Tell us about what you are working on</a>
         </div>
     </article>
 
