@@ -102,7 +102,7 @@
     .project-btns {
         flex-direction: column-reverse;
     }
-    .project-info {
+    .project-inner .project-info {
         width: 100%;
     }
 }
