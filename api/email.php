@@ -1,6 +1,6 @@
 <?php
     // recipient list use an array of emails
-    $recipients = array("eb968@exeter.ac.uk");
+    $recipients = [ "eb968@exeter.ac.uk", "edward.blewitt2@gmail.com" ];
     
     // email subject
     $subject = "💻 EXCS News";
@@ -12,7 +12,15 @@
 
 
     try {
-        mail(implode($recipients, ","), $subject, $content, $headers);
+        mail(
+            join(
+                ",",
+                $recipients,
+            ),
+            $subject,
+            $content,
+            $headers
+        );
     } catch (\Throwable $th) {
         echo "Error";
         echo var_dump($th);
