@@ -12,7 +12,7 @@
 
 
     try {
-        mail(implode(",". $recipients), $subject, $content, $headers);
+        mail(implode($recipients, ","), $subject, $content, $headers);
     } catch (\Throwable $th) {
         echo "Error";
         echo var_dump($th);
