@@ -6,7 +6,7 @@
     $subject = "💻 EXCS News";
     
     // email body
-    $message = file_get_contents(__DIR__ . "../resources/newsletter/oct-2023-1/newsletter.html");
+    $message = file_get_contents(__DIR__ . "/../resources/newsletter/oct-2023-1/newsletter.html");
 
     $headers = "From: Exeter Computer Science Society";
 
