@@ -1,0 +1,44 @@
+title: Featured Project Winner
+
+===========================
+
+
+<section class="page-padding top-section flex col gap-m">
+
+
+    <div>
+        <h2 class="flex space-between align-center">
+            <span class="text-strong">Realtime Raytracer</span>
+            <span style="font-size: 0.5em;">- Arjun Modi<span>
+        </h2>
+        <h5 style="font-weight: 200;" class="text-light">🥂 EXCS featured project winner - October 2023</h4>
+        <hr>
+    </div>
+
+    <img class="project-image" src="/resources/featured-projects/winners/oct-2023/project-image.jpg">
+
+
+    <div class="flex col gap-s">
+
+        <article class="info">
+            <p>I've been working on a real time ray tracer built in the unity game engine to explore how ray tracers render differently to standard rendering techniques such as rasterization. The ray tracer makes use of compute shaders which are programs run on the GPU in order to perform computation on vast amounts of data quickly through parallelization.</p>
+            <p>It works by sending data from the CPU to the GPU (which is where most of the overhead for the renderer is!) and performing the calculations via ray tracing.</p>
+            <p>Ray tracing works by firing rays out from the camera and calculating intersections and light information as the computer traces its journey. The combination of rays returning to the camera and the ones that don't allows the renderer to figure out how the scene should look. For example, rays that failed to return were most likely blocked by an object, creating a shadow.</p>
+            <p>This is analogous to real-world lighting: the light that reaches your eye tells your brain what you're seeing. This differs to rasterization where each object is painted with a colour and material and then logic is applied to show only the pixels that are closest to the camera. Ray tracing traces each ray throughout its journey to create a more accurate render of the scene as light bounces off each surface.</p>
+            <p>The renderer in its current form implements intersection with basic objects such as triangles, planes and spheres. Mesh intersection is also implemented but in its current state, it is not capable of handling higher poly models due to the number of iterations of each ray. Other features included are anti-aliasing (for softer edges), reflection (metallic objects), shadows and more. Some of the more interesting features I implemented included emission and specular highlighting as this introduced new factors such as light emitting from objects, which means the GPU has to handle rays originating from objects rather than just the camera.</p>
+            <p><b>Feel free to explore and clone the project from my GitHub if you're interested in learning more about how ray tracing works!</b></p>
+            <div>
+                <a href="https://github.com/amodi04/RayTracing" target="_blank" class="button filled-button">View on Github</a>
+                <a href="https://github.com/amodi04" target="_blank" class="button">See more by Arjun</a>
+            </div>
+        </article>
+
+        <div class="flex justify-right">
+            <div class="info flex align-center gap-s">
+                <span>By</span>
+                <b>Arjun Modi<b>
+            </div>
+        </div>
+
+    </div>
+</section>

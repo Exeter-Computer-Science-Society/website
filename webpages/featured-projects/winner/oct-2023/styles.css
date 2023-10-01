@@ -1,0 +1,24 @@
+.project-image {
+    max-height: 30rem;
+    width: 100%;
+    border-radius: var(--border-radius);
+    object-fit: cover;
+}
+
+.info {
+    border: 1.2px solid var(--secondary-colour);
+    padding: 24px;
+    font-style: 1.2rem;
+    border-radius: var(--border-radius);
+}
+
+.info > p {
+    margin-bottom: 34px;
+}
+
+.profile {
+    width: 1em;
+    height: 1em;
+    object-fit: cover;
+    border-radius: 50%;
+}
