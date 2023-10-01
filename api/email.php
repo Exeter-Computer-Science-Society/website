@@ -18,7 +18,7 @@
                 $recipients,
             ),
             $subject,
-            $content,
+            $message,
             $headers
         );
     } catch (\Throwable $th) {
