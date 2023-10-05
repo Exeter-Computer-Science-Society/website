@@ -1,0 +1,45 @@
+.hero {
+    display: flex;
+    gap: 40px;
+}
+
+.hero-info {
+    width: 50%;
+}
+
+.hero-image-cont {
+    flex: 1;
+}
+
+.hero-image-cont > img {
+    width: 100%;
+}
+
+.sessions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+}
+
+.sessions .card > div:first-child {
+    min-width: 16%;
+}
+
+.sessions .card {
+
+}
+
+
+
+/* Mobile responsive styles */
+@media screen and (max-width: 800px) {
+    .hero {
+        flex-direction: column-reverse;
+    }
+    .hero-info {
+        width: unset;
+    }
+    .sessions .card {
+        flex-direction: column;
+    }
+}
