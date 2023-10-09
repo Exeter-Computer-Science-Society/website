@@ -136,8 +136,9 @@ function parse_raw_settings_block($raw_settings_block) {
 
     // Iterate over each new line
     foreach(preg_split("/((\r?\n)|(\r\n?))/", $raw_settings_block) as $line) {
+
         // Split the line on the first ':' character
-        $parts = explode(':', $line);
+        $parts = explode(':', $line, 2);
 
         if(count($parts) == 1) {
             // Then set as key-only setting
@@ -150,6 +151,7 @@ function parse_raw_settings_block($raw_settings_block) {
             continue;
         }
 
+        
         if(count($parts) !== 2) {
             // Then is malformed settings line
             continue;

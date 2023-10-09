@@ -1,0 +1,7 @@
+.newsletter {
+    border: 2px solid transparent;
+}
+
+.newsletter:hover {
+    border-color: var(--accent-colour);
+}

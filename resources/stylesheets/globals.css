@@ -137,7 +137,23 @@ body::-webkit-scrollbar-thumb:hover {
 
 
 
+.form input[type=text],
+.form input[type=password],
+.form textarea {
+    font-size: 1.1rem;
+    font-family: inherit;
+    padding: 8px 12px;
+    width: 100%;
+    background-color: var(--bg-colour);
+    border-radius: var(--border-radius);
+    border: 0.8px solid var(--text-light-colour);
+    color: var(--text-strong-colour);
+}
 
+.form textarea {
+    min-height: 25rem;
+    resize: vertical;
+}
 
 
 

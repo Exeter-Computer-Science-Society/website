@@ -1,0 +1,41 @@
+title: 📰 EXCS Newsletters
+
+
+======================
+
+<script>
+
+function parse_newsletters(newsletters) {
+    return newsletters.map(n => {
+        return (
+            `<a href="${n.link}" class="card flex gap-s newsletter">
+                <div>
+                    <h1>📰</h1>
+                </div>
+                <div class="flex-1">
+                    <h4 class="text-middle">${n.edition}</h4>
+                    <p class="accent">Read -></p>
+                </div>
+            </a>`
+        )
+    }).join('')
+}
+
+</script>
+
+<section class="page-padding top-section flex col gap-s">
+    <h1 class="excs-arrow-heading text-strong">EXCS Updates Newsletter</h1>
+    <p>New for the 23/24 academic year, we are pleased to announce that we will be keeping all our members up to date with opportunities and society news/events</p>
+</section>
+
+<section class="page-padding flex col gap-m">
+    <h3 class="excs-arrow-heading">Previous Newsletters:</h3>
+
+    <article
+        class="flex col gap-s"
+        ajax-get="/resources/newsletter/newsletters.json"
+        ajax-parse-json
+        ajax-parser="parse_newsletters"
+    ></article>
+
+</section>

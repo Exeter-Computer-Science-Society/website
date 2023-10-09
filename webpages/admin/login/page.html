@@ -1,0 +1,30 @@
+title: Login
+
+============================
+
+<script>
+
+    function loginError() {
+        alert("Nope")
+    }
+
+</script>
+
+<section class="page-padding top-section">
+    <div class="login-form flex col gap-s">
+        <h3>Login</h3>
+        <form class="card form flex col gap-s" ajax-post="/api/login/login.php" ajax-on-request-error="loginError">
+            <div>
+                <div><label for="usernmae">Username</label></div>
+                <input type="text" name="username" id="username">
+            </div>
+            <div>
+                <div><label for="password">Password</label></div>
+                <input type="password" name="password" id="password">
+            </div>
+            <div>
+                <button class="button filled-button" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</section>

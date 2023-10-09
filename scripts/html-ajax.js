@@ -105,7 +105,7 @@ class ajax_control {
         if(element.hasAttribute("ajax-get")) {
             raw_data = await this.get(element.getAttribute("ajax-get"))
         } else if(element.hasAttribute("ajax-post")) {
-            raw_data = await this.post(element.getAttribute("ajax-post"))
+            raw_data = await this.post(element.getAttribute("ajax-post"), new FormData(element))
         } else {
             console.error(element, "Has neither an ajax-get or ajax-post attribute")
         }
