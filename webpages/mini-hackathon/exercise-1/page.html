@@ -1,0 +1,53 @@
+<section>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- add code instructions here -->
+    <pre>
+        <code class="">
+consider a string of characters (a). Your task is to replace a singular character with another character (c), at a index (b)
+
+
+example 1:
+    a = asdjfafjdsk
+    b = 2
+    c = i
+
+    so the input is:
+        asdjfafjdsk 2 i
+    
+    the output should be:
+        asijfafjdsk
+
+example 2:
+    a = asdjfafjdsk
+    b = 5
+    c = i
+
+    so the input is:
+        asdjfafjdsk 5 i
+
+    the output should be:
+        asdjfifjdsk
+
+GO!
+        </code>
+    </pre>
+
+    <!-- add code pallet here -->
+    <pre>
+        <code class="python">
+def replace(a, b, c):
+    # code here
+
+if __name__ == "__main__":
+    a = input()
+    b, c = input().split(" ")
+    result = replace(a, int(b), c)
+    print(result)
+        </code>
+    </pre>
+    
+    
+</section>
