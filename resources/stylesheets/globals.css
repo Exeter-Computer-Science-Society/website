@@ -24,6 +24,7 @@ Styles that are available throughout all webpages
 
     --spacing-small: 16px;
     --spacing-medium: 28px;
+    --spacing-big: 40px;
 
     --sans-font: 'Inter', sans-serif;
     --mono-font: 'Roboto Mono', monospace;
