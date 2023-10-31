@@ -1,0 +1,83 @@
+<section>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- add code instructions here -->
+    <pre>
+        <code class="">
+GO!
+        </code>
+    </pre>
+
+    <!-- add code pallet here -->
+    <pre>
+        <code class="python">
+class Human
+    def __init__(self, name):
+        # names
+        self.name = name
+    
+        #age
+        self.age = 0
+        self.dead = False
+        
+        # drank water / eat food
+        self.eat = False
+        self.drink = False
+
+    def eat_food(self):
+        if self.eat:
+            print("you have already eaten")
+        else:
+            print("yum")
+    
+    def drink_water(self):
+        if self.drink:
+            print("you have already drank")
+        else:
+            print("yum")
+
+    def grow(self):
+        if self.eat and self.drink:
+            self.age += 1
+            print(f"your age is now {self.age}")
+        else:
+            print("oh no you have died!")
+            self.dead = True
+
+if __name__ == "__main__":
+    print("welcome to the game of life")
+    print("the aim of this game is to make it to 5 years of age")
+    print("read the code to figure out how the game works")
+    print("goodluck\n\n")
+    name = input("enter the name of your character > ")
+    
+    person = Human(name)
+    
+    while person.age < 6 and not person.dead:
+        action = input("enter the action (Eat, Drink, Age) > ")
+        action = action.lower()
+        
+        match action:
+            case "eat":
+                person.eat_food()
+            
+            case "drink":
+                person.drink_water()
+
+            case "age":
+                person.age()
+            
+            case _:
+                print("error, invalid command try again")
+
+if not person.dead:
+    print("Congratulations, you lived!")
+else:
+    print("Oh no, you died!")
+        </code>
+    </pre>
+    
+    
+</section>

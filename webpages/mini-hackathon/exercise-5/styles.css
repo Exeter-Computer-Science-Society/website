@@ -1,0 +1,9 @@
+section {
+    margin-left: var(--page-padding-left);
+    margin-right: var(--page-padding-right);
+}
+
+code {
+    border: none;
+    border-radius: 10px;
+}
