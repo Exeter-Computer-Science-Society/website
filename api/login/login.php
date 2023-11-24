@@ -1,6 +1,5 @@
 <?php
 
-die;
 if($_SERVER["REQUEST_METHOD"] !== "POST") {
     http_response_code(405);
     exit;
@@ -16,7 +15,6 @@ if(!isset($_POST["username"], $_POST["password"])) {
 $host = "localhost";
 
 $config_file_path = __DIR__ . "/../../../site.ini";
-
 
 // Read config file for secrets
 $config = (object) parse_ini_file($config_file_path);
@@ -40,9 +38,25 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $_POST["username"]);
 $stmt->execute();
 $result = $stmt->get_result(); // get the mysqli result
+
+if($result->num_rows === 0) {
+    http_response_code(403);
+    exit;
+}
+
 $user = $result->fetch_assoc(); // fetch data
 
-echo var_dump($user);
+if(password_verify($_POST["password"], $user["password"])) {
+
+    session_start();
+
+    $_SESSION["loggedIn"] = true;
+    $_SESSION["loginTime"] = time();
+    
+} else {
+    http_response_code(403);
+    exit;
+}
 
 
 ?>

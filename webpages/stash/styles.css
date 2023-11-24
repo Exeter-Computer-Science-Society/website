@@ -1,0 +1,79 @@
+main {
+    line-height: 0;
+}
+
+main > * {
+    line-height: 100%;
+}
+
+.stash-top {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "a a a a a b b b"
+    "c c c c d d d d";
+    gap: var(--spacing-medium);
+}
+
+.stash-title {
+    grid-area: a;
+}
+
+.stash-logo {
+    grid-area: b;
+}
+
+.clothing {
+    grid-area: c;
+}
+
+.items {
+    grid-area: d;
+}
+
+.stash-type {
+    padding: 2rem;
+    min-height: 8rem;
+}
+
+.lighter {
+    background-color: var(--primary-colour);
+}
+
+.stash-bg {
+    border-radius: var(--border-radius);
+    background-color: var(--primary-colour);
+    background: radial-gradient(grey 0%, var(--secondary-colour) 60%);
+    padding: var(--spacing-medium);
+    display: flex;
+    gap: 4px;
+
+}
+
+.stash-bg > img {
+    width: 50%;
+    object-fit: contain;
+}
+
+.stash-cards {
+    display: grid;
+    gap: var(--spacing-small);
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.stash-card {
+    background-color: var(--secondary-colour);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-small);
+    flex-direction: column;
+}
+
+/* .stash-card.l {
+    width: 80%;
+    margin-right: auto;
+}
+
+.stash-card.r {
+    width: 80%;
+    margin-left: auto;
+} */

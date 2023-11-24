@@ -85,6 +85,10 @@
     justify-content: right;
 }
 
+.justify-space-between {
+    justify-content: space-between;
+}
+
 .space-between {
     justify-content: space-between;
 }

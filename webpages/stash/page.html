@@ -1,5 +1,196 @@
 
-<section class="flex col gap-m justify-center align-center text-center" style="height: 65vh;">
-    <h3>Official stash coming soon!</h3>
-    <img src="/resources/images/excs-final.svg" style="width: 6rem; max-width: 80vw; filter: grayscale(100%);">
+
+<section class="page-padding top-section flex col gap-s">
+    
+    <h1>EXCS Stash is here</h1>
+
+    <div class="clothing card stash-type flex col justify-center align-center" style="width: 66%;">
+        <p>1.</p>
+        <h4>
+            <b>
+                View Options
+            </b>
+        </h4>
+    </div>
+
+    <div class="items card stash-type flex col justify-center align-center" style="width: 66%; margin: auto;">
+        <p>2.</p>
+        <h4>
+            <b>
+                Choose Items
+            </b>
+        </h3>
+    </div>
+
+    <div class="items card stash-type flex col justify-center align-center" style="width: 66%; margin-left: auto;">
+        <p>3.</p>
+        <h4>
+            <b>
+                Go to <a href="" class="accent underline">FIXR</a> to make your purchases
+            </b>
+        </h3>
+    </div>
+
+</section>
+
+<section class="flex justify-center">
+    <div style="width: fit-content;" class="flex col align-center gap-s accent">
+        <p>Scroll down to see options</p>
+        <img class="icon" src="/resources/images/icons/excs-down-icon.svg">
+    </div>
+</section>
+
+ 
+
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#1c1c1c" fill-opacity="1" d="M0,160L80,165.3C160,171,320,181,480,160C640,139,800,85,960,64C1120,43,1280,53,1360,58.7L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
+
+<div class="lighter flex col" ajax-get="/resources/stash/prices.json" ajax-parse-json ajax-no-write ajax-provide="prices">
+    
+    <div class="page-padding flex col gap-m">
+
+        <h2 class="excs-arrow-heading flex align-center gap-s" style="color: white;">
+            <img src="/resources/images/excs-final.svg" style="height: 1em;">
+            <span>Embroidered Clothing</span>
+        </h2>
+
+        <p>All items that have a print on the back are available in an option that does not have anything printed on the back!</p>
+
+        <section class="stash-cards">
+            <!-- <h3 class="excs-arrow-heading">Clothing</h3> -->
+    
+            <div class="stash-card l flex gap-m">
+                <div class="flex col gap-s">
+                    <div class="stash-bg">
+                        <img style="height: 20rem" src="/resources/stash/images/tshirt-front Background Removed.png">
+                        <img style="height: 20rem" src="/resources/stash/images/tshirt-back Background Removed.png">
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <h4>Unisex T-Shirt</h4>
+                    <hr>
+                    <p>£<span ajax-use="prices.unisexTShirt"></span></p>
+                </div>
+            </div>
+
+            <div class="stash-card l flex gap-m">
+                <div class="flex col gap-s">
+                    <div class="stash-bg">
+                        <img style="height: 20rem" src="/resources/stash/images/tshirt-front Background Removed.png">
+                        <img style="height: 20rem" src="/resources/stash/images/tshirt-back Background Removed.png">
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <h4>Female T-Shirt</h4>
+                    <hr>
+                    <small>Also available in <span style="color: rgb(57, 129, 42);">Exeter GREEN</span></small>
+                    <p>£<span ajax-use="prices.femaleTshirt"></span></p>
+                </div>
+            </div>
+    
+            <div class="stash-card r flex gap-m">
+                <div class="flex col gap-s">
+                    <div class="stash-bg">
+                        <img style="height: 20rem" src="/resources/stash/images/rugby-shirt-front Background Removed.png">
+                        <img style="height: 20rem" src="/resources/stash/images/rugby-shirt-back Background Removed.png">
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <h4>Rugby Shirt</h4>
+                    <hr>
+                    <small>Also available in <span style="color: rgb(57, 129, 42);">Exeter GREEN</span></small>
+                    <p>£<span ajax-use="prices.rugbyShirt"></span></p>
+                </div>
+            </div>
+    
+            <div class="stash-card l flex gap-m">
+                <div class="flex col gap-s">
+                    <div class="stash-bg">
+                        <img style="height: 20rem" src="/resources/stash/images/fleece-front Background Removed.png">
+                        <img style="height: 20rem" src="/resources/stash/images/fleece-back Background Removed.png">
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <h4>Zip-Neck Fleece</h4>
+                    <hr>
+                    <small>Also available in <span style="color: rgb(57, 129, 42);">Exeter GREEN</span></small>
+                    <p>£<span ajax-use="prices.zipNeckFleece"></span></p>
+                </div>
+            </div>
+    
+            <div class="stash-card r flex gap-m">
+                <div class="flex col gap-s">
+                    <div class="stash-bg">
+                        <img style="height: 20rem" src="/resources/stash/images/bodywarmer-front Background Removed.png">
+                        <img style="height: 20rem" src="/resources/stash/images/bodywarmer-back Background Removed.png">
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <h4>Padded Body Warmer</h4>
+                    <hr>
+                    <p>£<span ajax-use="prices.bodyWarmer"></span></p>
+                </div>
+            </div>
+    
+    
+            <div class="stash-card l flex gap-m">
+                <div class="flex col gap-s">
+                    <div class="stash-bg">
+                        <img style="height: 20rem" src="/resources/stash/images/hoodie-length Background Removed.png">
+                        <img style="height: 20rem" src="/resources/stash/images/hoodie-back Background Removed.png">
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <h4>Hoodie</h4>
+                    <hr>
+                    <small>Also available in <span style="color: rgb(57, 129, 42);">Exeter GREEN</span></small>
+                    <p>£<span ajax-use="prices.hoodie"></span></p>
+                </div>
+            </div>
+    
+            <div class="stash-card r flex gap-m">
+                <div class="flex col gap-s">
+                    <div class="stash-bg">
+                        <img style="height: 20rem" src="/resources/stash/images/zip-hoodie-front Background Removed.png">
+                        <img style="height: 20rem" src="/resources/stash/images/zip-hoodie-back Background Removed.png">
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <h4>Zip-up Hoodie</h4>
+                    <hr>
+                    <small>Also available in <span style="color: rgb(57, 129, 42);">Exeter GREEN</span></small>
+                    <p>£<span ajax-use="prices.zipUpHoodie"></span></p>
+                </div>
+            </div>
+    
+            <div class="stash-card l flex gap-m">
+                <div class="flex col gap-s">
+                    <div class="stash-bg">
+                        <img style="height: 20rem" src="/resources/stash/images/sweater-front Background Removed.png">
+                        <img style="height: 20rem" src="/resources/stash/images/sweater-back Background Removed.png">
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <h4>Zip-Neck Sweatshirt</h4>
+                    <hr>
+                    <p>£<span ajax-use="prices.zipNeckSweatshirt"></span></p>
+                </div>
+            </div>
+    
+    
+        </section>
+
+    </div>
+</div>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#1c1c1c" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,176C384,192,480,192,576,176C672,160,768,128,864,144C960,160,1056,224,1152,245.3C1248,267,1344,245,1392,234.7L1440,224L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+
+<section class="page-padding padding-small flex col gap-m align-center" style="min-height: 60vh;">
+    <h2>Ready to order?</h2>
+    <a href="fixr" class="underline">
+        <h3 class="flex align-center gap-s accent">
+                <img src="/resources/images/icons/excs-right-arrow.svg" style="height: 1em; object-fit: contain;">
+                <span>Order HERE</span>
+        </h3>
+    </a>
 </section>

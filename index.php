@@ -78,14 +78,12 @@
         <nav x-bind:class="navOpen ? 'nav-open' : ''">
             <a class="link m-show-flex" href="/">Home</a>
             <a class="link" href="/committee">Committee</a>
-            <a class="link" href="/stash">Stash</a>
-            <a class="link flex align-center" href="/mini-hackathon">
-                <small class="accent">new </small>
-                Movember Hackathon
+            <a class="link" href="/stash">
+                <small class="accent">new </small>    
+                Stash
             </a>
             <a class="link flex align-center" href="/featured-projects">
-                <small class="accent">new </small>
-                Featured Projects
+                Featured your project!
             </a>
             <a class="link" href="/events">Events</a>
             <a target="_blank" class="link" href="https://my.exeterguild.com/groups/QRM97/computer-science-society/memberships">
