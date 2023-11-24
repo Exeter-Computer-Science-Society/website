@@ -13,13 +13,15 @@ title: EXCS | Events 📅
 
         events.forEach(event => {
             html += `
-            <li class='event'>
-                <div class='info'>
-                    <h5>${event.name}</h5>
-                    <p>${event.location}</p>
-                </div>
-                <p>${event.time}</p>
-            </li>
+            <a style='padding: 12px;' href='${event.link ? event.link : "javascript:void(0);"}'>
+                <li class='event'>
+                    <div class='info'>
+                        <h5>${event.name}</h5>
+                        <p>${event.location}</p>
+                    </div>
+                    <p>${event.time}</p>
+                </li>
+            </a>
             `
         })
 
