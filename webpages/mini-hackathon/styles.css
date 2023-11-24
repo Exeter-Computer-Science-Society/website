@@ -28,3 +28,16 @@
     box-shadow: 0 0 100px rgba(128, 125, 125, 0.5);
     z-index: 100000;
 }
+
+
+.btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: blue;
+    border-radius: 10px;
+}
+
+.btn:hover {
+    background-color: #2525ff;
+    cursor: pointer;
+}
