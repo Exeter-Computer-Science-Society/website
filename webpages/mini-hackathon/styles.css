@@ -14,3 +14,30 @@
 .hero-image-cont > img {
     max-width: 100%;
 }
+
+.image-cont {
+    width: 100%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.image-cont > img {
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 0 100px rgba(128, 125, 125, 0.5);
+    z-index: 100000;
+}
+
+
+.btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: blue;
+    border-radius: 10px;
+}
+
+.btn:hover {
+    background-color: #2525ff;
+    cursor: pointer;
+}

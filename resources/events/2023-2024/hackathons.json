@@ -1,17 +1,14 @@
 [
     {
-        "name": "Winter Hackathon",
-        "time": "TBD Oct/Nov",
-        "location": "SWIOT, Exeter"
+        "name": "Movember Hackathon",
+        "time": "14th Nov, 14:00",
+        "location": "Peter Chalk, Newman Red",
+        "link": "/mini-hackathon"
     },
     {
         "name": "Hack SouthWest",
         "time": "Feb 13th, 11:00",
-        "location": "The Forum, Exeter"
-    },
-    {
-        "name": "Summer Hackathon",
-        "time": "Feb 13th, 11:00",
-        "location": "The Forum, Exeter"
+        "location": "The Forum, Exeter",
+        "link": "https://hack-south-west.excs.uk/"
     }
 ]
