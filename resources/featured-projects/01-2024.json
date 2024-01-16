@@ -1,0 +1,22 @@
+{
+    "name": "Spotify Album Art Display",
+    "image": "/resources/images/featured-projects/winners/jan-2024/SpotifyAPI_screenshot3.jpg",
+    "description": [
+        "A small flask web-app which displays album art - or playlist art - for the currently playing track on the linked Spotify account",
+        "Uses the Spotify Web API <a href='https://developer.spotify.com/documentation/web-api' class='accent underline'>(https://developer.spotify.com/documentation/web-api)</a>.",
+        "It can be run as localhost in the browser, but I wanted something more physical and interactive, so I got the server and webpage running standalone on Raspberry Pi Zero with a 3.5” touchscreen interfaced with the GPIO pins, which now sits on my desk."
+    ],
+    "github": "https://github.com/tom-newbold/spotify-api",
+    "technologies": [
+        "Python"
+    ],
+    "authors": [
+        {
+            "image": "/resources/images/featured-projects/winners/jan-2024/SpotifyAPI_screenshot3.jpg",
+            "name": "Thomas Newbold",
+            "socials": {
+                "linkedin": "https://www.linkedin.com/in/thomasnewbold-/"
+            }
+        }
+    ]
+}
