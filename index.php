@@ -77,14 +77,16 @@
 
         <nav x-bind:class="navOpen ? 'nav-open' : ''">
             <a class="link m-show-flex" href="/">Home</a>
+            <a class="link" href="https://fixr.co/event/hack-south-west-tickets-549080895?">
+                <small class="accent">Buy tickets</small>
+                <span>Hack South West</span>
+            </a>
+
             <a class="link" href="/committee">Committee</a>
-            <a class="link" href="/stash">
-                <small class="accent">new </small>    
-                Stash
-            </a>
-            <a class="link flex align-center" href="/featured-projects">
+            <a class="link" href="/stash">Stash</a>
+            <!-- <a class="link flex align-center" href="/featured-projects">
                 Feature your project!
-            </a>
+            </a> -->
             <a class="link" href="/events">Events</a>
             <a target="_blank" class="link" href="https://my.exeterguild.com/groups/QRM97/computer-science-society/memberships">
                 <span>Memberships</span>
