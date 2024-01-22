@@ -14,7 +14,7 @@ title: EXCS | Events 📅
         events.forEach(event => {
             console.log(event.link)
             html += `
-            <a style='padding: 12px;' href='${event.link ? event.link : "javascript:void(0);"}'>
+            <a href='${event.link ? event.link : "javascript:void(0);"}'>
                 <li class='event'>
                     <div class='info'>
                         <h5>${event.name}</h5>
