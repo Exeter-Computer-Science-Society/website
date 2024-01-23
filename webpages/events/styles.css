@@ -28,6 +28,7 @@
 .drop-down .event {
     display: flex;
     padding: 12px;
+    margin: 12px;
     border-radius: 6px;
     background-color: var(--primary-colour);
 }

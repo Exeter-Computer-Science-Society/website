@@ -1,14 +1,8 @@
 [
     {
-        "name": "Movember Hackathon",
-        "time": "14th Nov, 14:00",
-        "location": "Peter Chalk, Newman Red",
-        "link": "/mini-hackathon"
-    },
-    {
-        "name": "Hack SouthWest",
-        "time": "Feb 13th, 11:00",
-        "location": "The Forum, Exeter",
+        "name": "Hack South West",
+        "time": "Feb 17th, 09:00",
+        "location": "Innovation Centre, Exeter",
         "link": "https://hack-south-west.excs.uk/"
     }
 ]
