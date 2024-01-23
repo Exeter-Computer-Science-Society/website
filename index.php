@@ -77,10 +77,10 @@
 
         <nav x-bind:class="navOpen ? 'nav-open' : ''">
             <a class="link m-show-flex" href="/">Home</a>
-            <a class="link" href="/committee">Committee</a>
-            <a class="link" href="/stash">
-                <small class="accent">new </small>    
-                Stash
+            <!-- <a class="link" href="/committee">Committee</a> -->
+            <a class="link" href="https://hack-south-west.excs.uk/">
+                <small class="accent">Register for</small>
+                Hack South West
             </a>
             <a class="link flex align-center" href="/featured-projects">
                 Feature your project!
