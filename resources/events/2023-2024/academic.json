@@ -18,5 +18,25 @@
         "name": "Flutter Workshop Part 4",
         "time": "8th Nov, 2pm-4pm",
         "location": "102, Harrison Building"
+    },
+    {
+        "name": "React Course Workshop Part 1",
+        "time": "31st Jan, 3pm-4:30pm",
+        "location": "SWIOT: Ai Arena & Comp Lab"
+    },
+    {
+        "name": "React Course Workshop Part 2",
+        "time": "7th Feb, 2pm-3:30pm",
+        "location": "202, Washington Singer"
+    },
+    {
+        "name": "React Course Workshop Part 3",
+        "time": "14th Feb, 2pm-3:30pm",
+        "location": "202, Washington Singer"
+    },
+    {
+        "name": "React Course Workshop Part 4",
+        "time": "21st Feb, 2pm-3:30pm",
+        "location": "202, Washington Singer"
     }
 ]

@@ -1,7 +1,12 @@
 [
     {
-        "name": "Hack South West",
-        "time": "Feb 17th, 09:00",
+        "name": "Movember Hackathon",
+        "time": "24th November, 2023",
+        "location": "Peter Chalk LT"
+    },
+    {
+        "name": "<style>.hack-sw { display: block; } .hack-sw-img { width: 100%; border-radius: 1rem; border: 2px var(--accent-colour) solid; }</style><a href='https://hack-south-west.excs.uk/' class='hack-sw'><img src='/resources/images/hack-sw-banner.jpg' class='hack-sw-img' /></a>",
+        "time": "",
         "location": "Innovation Centre, Exeter",
         "link": "https://hack-south-west.excs.uk/"
     }

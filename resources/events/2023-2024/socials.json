@@ -1,32 +1,32 @@
 [
     {
         "name": "Fresher's Social",
-        "time": "passed",
+        "time": "",
         "location": "The Imperial Wetherspoon, Exeter"
     },
     {
         "name": "STEM Crossover Social",
-        "time": "passed",
+        "time": "",
         "location": "Timepiece"
     },
     {
         "name": "British Icons Theme",
-        "time": "passed",
+        "time": "",
         "location": ""
     },
     {
         "name": "Women in Computer Science",
-        "time": "passed",
+        "time": "",
         "location": ""
     },
     {
         "name": "Shit Shirts",
-        "time": "rescheduled",
+        "time": "",
         "location": ""
     },
     {
         "name": "Meet the Leturers",
-        "time": "Thursday 24th October 19:00",
+        "time": "",
         "location": "The Old Firehouse, Exeter"
     },
     {
@@ -48,5 +48,20 @@
         "name": "The Big Christmas Cocktail Night",
         "time": "",
         "location": ""
+    },
+    {
+        "name": "Maths x Computer Science Pizza Social",
+        "time": "",
+        "location": "The Old Firehouse, Exeter"
+    },
+    {
+        "name": "Easter Ball",
+        "time": "",
+        "location": "Mercure Hotel, Exeter"
+    },
+    {
+        "name": "Summer Ball",
+        "time": "",
+        "location": "The Vineyard"
     }
 ]

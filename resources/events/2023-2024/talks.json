@@ -1,17 +1,12 @@
 [
     {
-        "name": "Intro to GDPR",
+        "name": "The existential risks of AI",
         "time": "",
-        "location": ""
+        "location": "The Deck"
     },
     {
-        "name": "Into to Blockchain",
+        "name": "Preventing non-consentual image sharing",
         "time": "",
-        "location": ""
-    },
-    {
-        "name": "Intro to Rust",
-        "time": "",
-        "location": ""
+        "location": "The Deck" 
     }
 ]

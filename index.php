@@ -84,7 +84,7 @@
             </a>
             <a class="link flex align-center" href="/featured-projects">
                 Feature your project!
-            </a> -->
+            </a>
             <a class="link" href="/events">Events</a>
             <a target="_blank" class="link" href="https://my.exeterguild.com/groups/QRM97/computer-science-society/memberships">
                 <span>Memberships</span>
